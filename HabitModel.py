@@ -132,7 +132,7 @@ class HabitModel:
         else:
             ongoing_streak = 1
 
-        # update the historical longest_streak if the ongoing_streak is higher
+        # update the historical longest_streak if the ongoing_streak is higher than the longest streak
         if ongoing_streak > longest_streak:
             longest_streak = ongoing_streak
         else:
