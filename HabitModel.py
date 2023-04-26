@@ -83,6 +83,7 @@ class HabitModel:
                            habit.ongoing_streak,
                            habit.longest_streak, habit.last_completed_at))
         self.conn.commit()
+        print("Habit with the name \033[31m" + str(habit.name) + "\033[0m and the frequency of \033[31m" + str(habit.frequency) + "\033[0m has been added successfully!")
 
     def delete_habit(self, habit):
         """
@@ -92,6 +93,7 @@ class HabitModel:
         """
         self.conn.execute("DELETE FROM habits WHERE name = ?", (habit.name,))
         self.conn.commit()
+        print("Habit with the name \033[31m" + str(habit.name) + "\033[0m has been deleted from the database!")
 
     def complete_habit(self, habit):
         """

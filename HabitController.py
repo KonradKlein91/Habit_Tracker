@@ -31,7 +31,7 @@ class HabitController:
         # create a list of Habit objects
         habits = []
         for row in rows:
-            habit = Habit.Habit(row[1], row[3])
+            habit = Habit(row[1], row[3])
             habits.append(habit)
 
         # print the habits in a formatted way

@@ -8,6 +8,16 @@ The HabitTracker application is designed to help users develop and maintain good
 providing a way to track their progress. The application allows users to create new habits, mark
 habits as completed, and view their progress over time. The application uses a Model-ViewController (MVC) architecture to separate the user interface, data storage, and application logic.
 
+## Architecture
+
+This application uses a Model-View-Controller (MVC) architecture. The Model-View-Controller (MVC) 
+pattern is a design pattern used in software development that separates the application into three 
+interconnected components Model, View and Controller. 
+This pattern separates the concerns of the application into three components, allowing
+each to operate independently and minimizing the coupling between the components. This
+separation makes the code easier to maintain and modify over time, as changes to one component
+do not affect the others.
+
 ## Features
 
 * add habit: The user can create new habits by entering the name of the habit and the frequency

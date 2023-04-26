@@ -1,5 +1,6 @@
 from Habit import Habit
 from HabitController import HabitController
+from tabulate import tabulate
 
 
 class HabitView:
@@ -16,7 +17,7 @@ class HabitView:
         """
         while True:
             self.show_main_menu()
-            choice = input("enter your choice: ")
+            choice = input("please enter the number of the option you would like to execute: ")
             if choice == "1":
                 self.add_habit()
             elif choice == "2":
@@ -49,20 +50,22 @@ class HabitView:
         prints the main menu
         :return: None
         """
-        print("-----------------------")
-        print("1. add a new habit")
-        print("2. delete a habit")
-        print("3. complete a habit")
-        print("4. show all habits")
-        print("5. show longest streaks")
-        print("6. show longest streak for a habit")
-        print("7. show habits with certain frequency")
-        print("8. show habit names")
-        print("9. show completed habits last week")
-        print("10. insert sample data")
-        print("11. clear database")
-        print("q. quit")
-        print("-----------------------")
+        menu = [
+            ["1.", "add a new habit"],
+            ["2.", "delete a habit"],
+            ["3.", "complete a habit"],
+            ["4.", "show all habits"],
+            ["5.", "show longest streaks"],
+            ["6.", "show longest streak for a habit"],
+            ["7.", "show habits with certain frequency"],
+            ["8.", "show habit names"],
+            ["9.", "show completed habits last week"],
+            ["10.", "insert sample data"],
+            ["11.", "clear database"],
+            ["q.", "quit"]
+        ]
+        headers = ["Option", "Description"]
+        print(tabulate(menu, headers=headers, tablefmt="fancy_grid"))
 
     def add_habit(self):
         """
@@ -149,9 +152,9 @@ class HabitView:
         gets the habit info from the user
         :return: Habit object
         """
-        name = input("enter the name of the habit: ")
+        name = input("please enter the name of the habit: ")
         while True:
-            frequency = input("Enter the frequency of the habit in full days (e.g. 1 = daily; 7 = weekly): ")
+            frequency = input("please enter the frequency of the habit in full days (e.g. 1 = daily; 7 = weekly): ")
             try:
                 frequency = int(frequency)
                 break
@@ -164,5 +167,5 @@ class HabitView:
         gets the habit info from the user
         :return: Habit object
         """
-        name = input("enter the name of the habit: ")
+        name = input("please enter the name of the habit: ")
         return Habit(name)
