@@ -44,7 +44,7 @@ functools==3.2.3.post2
 
 
 ```
-git clone https://github.com/KonradKlein91/habit_mvc.git
+gh repo clone KonradKlein91/Habit_Tracker
 pip install -r requirements.txt
 ```
 
