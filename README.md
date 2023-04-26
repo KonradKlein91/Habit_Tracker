@@ -35,8 +35,6 @@ Python 3.9+
 pytest==7.3.0
 tabulate==0.9.0
 datetime==4.3
-sqlite3==2.6.0
-functools==3.2.3.post2
 ```
 
 
