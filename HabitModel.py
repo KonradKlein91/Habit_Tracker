@@ -152,6 +152,10 @@ class HabitModel:
         self.conn.execute("INSERT INTO habit_logs (habit_id, completed_at) VALUES (?, ?)", (habit_id, today_datetime))
         self.conn.commit()
 
+        print("Habit with the name \033[31m" + str(habit.name)
+              + "\033[0m has been marked as completed. The ongoing streak is \033[31m" + str(ongoing_streak) +
+              "\033[0m and the longest streak is \033[31m" + str(longest_streak) + "\033[0m. ")
+
     def insert_sample_data(self):
         """
         Insert sample data into the database
