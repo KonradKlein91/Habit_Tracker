@@ -70,7 +70,7 @@ def show_longest_streak_habit():
 
     # show all habits to the user and ask him which habit he wants to see the longest streak for
     print(tabulate(show_habits, headers=["Name"], tablefmt="fancy_grid"))
-    name = input("Enter the name of the habit: ")
+    name = input("Enter the exact name of the habit: ")
 
     # get the longest streak for the habit chosen by user
     c.execute("SELECT name, ongoing_streak, longest_streak, last_completed_at FROM habits WHERE name = ?", (name,))
@@ -93,6 +93,8 @@ def clear_database():
     c = conn.cursor()
     c.execute("DROP TABLE habits")
     c.execute("DROP TABLE habit_logs")
+    print("Database cleared.")
+
 
 
 def show_completed_within_last_week():
@@ -120,7 +122,6 @@ def show_completed_within_last_week():
     # Use tabulate to display the results
     table_headers = ["Habit ID", "Habit Name", "Completed at"]
     print(tabulate(habits, headers=table_headers, tablefmt="fancy_grid"))
-
     conn.close()
 
 
@@ -138,7 +139,4 @@ def get_habit_names():
     # it extracts the name and appends it to the accumulator acc.
     habit_names = reduce(lambda acc, habit: acc + [[habit[0]]], habits, [])
     print(tabulate(habit_names, headers=["Name"], tablefmt="fancy_grid"))
-
     conn.close()
-
-# TODO: add a function using the reduce function

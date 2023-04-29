@@ -74,6 +74,7 @@ class HabitView:
         """
         Habit = self.get_new_habit_info_from_user()
         self.controller.add_habit(Habit)
+        print_end()
 
 
     def delete_habit(self):
@@ -82,6 +83,7 @@ class HabitView:
         :return: None
         """
         self.controller.delete_habit()
+        print_end()
 
     def show_habits_table(self):
         """
@@ -89,6 +91,7 @@ class HabitView:
         :return: None
         """
         self.controller.show_habits_table()
+        print_end()
 
     def show_habit_names(self):
         """
@@ -96,6 +99,7 @@ class HabitView:
         :return: None
         """
         self.controller.show_habit_names()
+        print_end()
 
     def show_completed_within_last_week(self):
         """
@@ -103,6 +107,7 @@ class HabitView:
         :return: None
         """
         self.controller.show_completed_within_last_week()
+        print_end()
 
     def show_longest_streak(self):
         """
@@ -110,6 +115,7 @@ class HabitView:
         :return: None
         """
         self.controller.show_longest_streak()
+        print_end()
 
     def show_longest_streak_habit(self):
         """
@@ -117,6 +123,7 @@ class HabitView:
         :return: None
         """
         self.controller.show_longest_streak_habit()
+        print_end()
 
     def show_habits_frequency(self):
         """
@@ -124,6 +131,7 @@ class HabitView:
         :return: None
         """
         self.controller.show_habits_frequency()
+        print_end()
 
     def complete_habit(self):
         """
@@ -131,6 +139,7 @@ class HabitView:
         :return: None
         """
         self.controller.complete_habit()
+        print_end()
 
     def insert_sample_data(self):
         """
@@ -138,6 +147,7 @@ class HabitView:
         :return: None
         """
         self.controller.insert_sample_data()
+        print_end()
 
     def clear_database(self):
         """
@@ -146,6 +156,7 @@ class HabitView:
         :return: None
         """
         self.controller.clear_database()
+        print_end()
 
     def get_new_habit_info_from_user(self):
         """
@@ -169,3 +180,10 @@ class HabitView:
         """
         name = input("please enter the name of the habit: ")
         return Habit(name)
+
+def print_end():
+    """
+    Prints some newlines and a line of dashes.
+    :return: None
+     """
+    print('─' * 150)

@@ -1,6 +1,5 @@
 import sqlite3
 import datetime
-import Habit
 
 
 class HabitModel:
@@ -83,7 +82,7 @@ class HabitModel:
                            habit.ongoing_streak,
                            habit.longest_streak, habit.last_completed_at))
         self.conn.commit()
-        print("Habit with the name \033[31m" + str(habit.name) + "\033[0m and the frequency of \033[31m" + str(habit.frequency) + "\033[0m has been added successfully!")
+        print("Habit with the name \033[31m" + str(habit.name) + "\033[0m and the frequency of \033[31m" + str(habit.frequency) + "\033[0m days has been added successfully!")
 
     def delete_habit(self, habit):
         """
@@ -196,7 +195,6 @@ class HabitModel:
                 row
             )
 
-        # TODO - add sample data for habit_logs table
         data_logs = [(1, 2, '2021-05-09 14:19:56'),
                      (2, 5, '2021-05-16 11:05:15'),
                      (3, 8, '2021-05-23 15:47:58'),
@@ -219,4 +217,6 @@ class HabitModel:
 
         self.conn.commit()
         self.conn.close()
+
+        print("Sample data has been inserted into the database.")
 

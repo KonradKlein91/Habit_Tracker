@@ -39,7 +39,11 @@ class HabitController:
             print("{}. {}".format(i + 1, habit.name))
 
         # ask the user to enter the number of the habit to delete
-        index = int(input("enter the number of the habit to delete: ")) - 1
+        try:
+            index = int(input("enter the number of the habit to delete: ")) - 1
+        except ValueError:
+            print("please enter a number")
+            index = int(input("enter the number of the habit to delete: ")) - 1
 
         # select the habit to delete
         habits = habits[index]
