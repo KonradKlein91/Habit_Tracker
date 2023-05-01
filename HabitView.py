@@ -18,7 +18,7 @@ class HabitView:
         """
         while True:
             self.show_main_menu()
-            choice = input("please enter the number of the option you would like to execute: ")
+            choice = input("please enter the number of the task you would like to execute: ")
             if choice == "1":
                 self.add_habit()
             elif choice == "2":
