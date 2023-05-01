@@ -70,7 +70,6 @@ class HabitModel:
         :param habit: takes the user input for the habit name and frequency
         :return: None
         """
-        self.conn = sqlite3.connect('habits.db')
         self.conn.execute("INSERT INTO habits ( id, "
                           "                     name, "
                           "                     created_at, "
@@ -84,7 +83,8 @@ class HabitModel:
                            habit.longest_streak, habit.last_completed_at))
         self.conn.commit()
         print(
-            "Habit with the name \u001B[31m{0}\u001B[0m and the frequency of \u001B[31m{1}\u001B[0m days has been added successfully!".format(
+            "Habit with the name \u001B[31m{0}\u001B[0m and the frequency of \u001B[31m{1}\u001B[0m days has been "
+            "added successfully!".format(
                 str(habit.name), str(habit.frequency)))
 
     def delete_habit(self, habit):
@@ -105,7 +105,6 @@ class HabitModel:
         :return: None
         """
         # get the last_completed_at, ongoing_streak and longest_streak from the habits table for the selected habit
-        self.conn = sqlite3.connect('habits.db')
         cursor = self.conn.execute("SELECT  id, "
                                    "        last_completed_at, "
                                    "        ongoing_streak, "
@@ -165,7 +164,6 @@ class HabitModel:
         Insert sample data into the database
         :return: None
         """
-        self.conn = sqlite3.connect('habits.db')
         data = [(1, "Drink Water", "2021-05-01 15:01:36", 1, 0, 0, 0, None),
                 (2, "Do Yoga", "2021-05-06 13:25:09", 3, 1, 1, 1, "2021-05-09"),
                 (3, "Read a book", "2021-05-07 11:42:03", 2, 0, 0, 0, None),
@@ -211,7 +209,6 @@ class HabitModel:
                      (8, 20, '2021-07-25 10:04:58'),
                      (9, 19, '2023-04-24 04:30:53')]
 
-
         for row in data_logs:
             self.conn.execute(
                 "INSERT INTO habit_logs (   id, "
@@ -225,4 +222,3 @@ class HabitModel:
         self.conn.close()
 
         print("Sample data has been inserted into the database.")
-

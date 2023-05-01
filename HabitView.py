@@ -7,6 +7,7 @@ class HabitView:
     """
     View class for the Habit application
     """
+
     def __init__(self):
         self.controller = HabitController()
 
@@ -75,7 +76,6 @@ class HabitView:
         Habit = self.get_new_habit_info_from_user()
         self.controller.add_habit(Habit)
         print_end()
-
 
     def delete_habit(self):
         """
@@ -181,9 +181,10 @@ class HabitView:
         name = input("please enter the name of the habit: ")
         return Habit(name)
 
+
 def print_end():
     """
-    Prints some newlines and a line of dashes.
+    Prints a line of dashes.
     :return: None
      """
     print('─' * 150)

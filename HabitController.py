@@ -7,6 +7,7 @@ class HabitController:
     """
     Controller class for the Habit application
     """
+
     def __init__(self, db_connection=None):
         self.model = HabitModel(db_connection)
 
@@ -46,7 +47,7 @@ class HabitController:
             index = int(input("enter the number of the habit to delete: ")) - 1
 
         # select the habit to delete
-        try: # check if the user entered a valid number
+        try:  # check if the user entered a valid number
             habits = habits[index]
         except IndexError:
             print("either the number you have entered doesn't exist or is not valid!")
@@ -82,7 +83,6 @@ class HabitController:
         :return: None
         """
         show_completed_within_last_week()
-
 
     def show_longest_streak(self):
         """
@@ -150,5 +150,3 @@ class HabitController:
 
         # recreate the tables
         self.model.recreate_tables()
-
-

@@ -96,11 +96,10 @@ def clear_database():
     print("Database cleared.")
 
 
-
 def show_completed_within_last_week():
     """
-    Show all habits that have been completed within the last 7 days using the filter function. Prints out a a list of habit names..
-    :return: None
+    Show all habits that have been completed within the last 7 days using the filter function. Prints out a list of
+    habit names.. :return: None
     """
     conn = sqlite3.connect('habits.db')
     c = conn.cursor()
@@ -110,7 +109,8 @@ def show_completed_within_last_week():
     last_week = today - datetime.timedelta(days=7)
 
     # Query the habit_logs table for all habit_ids that have been completed within the last 7 days
-    c.execute("SELECT habit_id, habits.name, completed_at FROM habit_logs JOIN habits ON habit_logs.habit_id = habits.id")
+    c.execute(
+        "SELECT habit_id, habits.name, completed_at FROM habit_logs JOIN habits ON habit_logs.habit_id = habits.id")
     habits = c.fetchall()
 
     # Convert the completed_at column to datetime objects
@@ -135,7 +135,7 @@ def get_habit_names():
     c.execute("SELECT name FROM habits")
     habits = c.fetchall()
 
-    # use the reduce function to to iterate over the list of tuples, and for each tuple,
+    # use the reduce function to iterate over the list of tuples, and for each tuple,
     # it extracts the name and appends it to the accumulator acc.
     habit_names = reduce(lambda acc, habit: acc + [[habit[0]]], habits, [])
     print(tabulate(habit_names, headers=["Name"], tablefmt="fancy_grid"))
