@@ -64,7 +64,7 @@ class HabitView:
             ["11.", "clear database"],
             ["q.", "quit"]
         ]
-        headers = ["Option", "Description"]
+        headers = ["Main Menu", "Task"]
         print(tabulate(menu, headers=headers, tablefmt="fancy_grid"))
 
     def add_habit(self):

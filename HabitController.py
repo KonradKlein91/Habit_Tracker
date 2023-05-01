@@ -46,7 +46,11 @@ class HabitController:
             index = int(input("enter the number of the habit to delete: ")) - 1
 
         # select the habit to delete
-        habits = habits[index]
+        try: # check if the user entered a valid number
+            habits = habits[index]
+        except IndexError:
+            print("either the number you have entered doesn't exist or is not valid!")
+            return
 
         # call the model to delete the habit
         self.model.delete_habit(habits)
@@ -126,6 +130,8 @@ class HabitController:
         # complete the habit if the index is valid
         if 0 <= index < len(habits):
             self.model.complete_habit(habits[index])
+        else:
+            print("either the number you have entered doesn't exist or is not valid!")
 
     def insert_sample_data(self):
         """

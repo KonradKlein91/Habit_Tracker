@@ -70,6 +70,7 @@ class HabitModel:
         :param habit: takes the user input for the habit name and frequency
         :return: None
         """
+        self.conn = sqlite3.connect('habits.db')
         self.conn.execute("INSERT INTO habits ( id, "
                           "                     name, "
                           "                     created_at, "
@@ -82,7 +83,9 @@ class HabitModel:
                            habit.ongoing_streak,
                            habit.longest_streak, habit.last_completed_at))
         self.conn.commit()
-        print("Habit with the name \033[31m" + str(habit.name) + "\033[0m and the frequency of \033[31m" + str(habit.frequency) + "\033[0m days has been added successfully!")
+        print(
+            "Habit with the name \u001B[31m{0}\u001B[0m and the frequency of \u001B[31m{1}\u001B[0m days has been added successfully!".format(
+                str(habit.name), str(habit.frequency)))
 
     def delete_habit(self, habit):
         """
@@ -90,6 +93,7 @@ class HabitModel:
         :param habit: user input which habit to delete
         :return: None
         """
+        self.conn = sqlite3.connect('habits.db')
         self.conn.execute("DELETE FROM habits WHERE name = ?", (habit.name,))
         self.conn.commit()
         print("Habit with the name \033[31m" + str(habit.name) + "\033[0m has been deleted from the database!")
@@ -101,6 +105,7 @@ class HabitModel:
         :return: None
         """
         # get the last_completed_at, ongoing_streak and longest_streak from the habits table for the selected habit
+        self.conn = sqlite3.connect('habits.db')
         cursor = self.conn.execute("SELECT  id, "
                                    "        last_completed_at, "
                                    "        ongoing_streak, "
@@ -160,6 +165,7 @@ class HabitModel:
         Insert sample data into the database
         :return: None
         """
+        self.conn = sqlite3.connect('habits.db')
         data = [(1, "Drink Water", "2021-05-01 15:01:36", 1, 0, 0, 0, None),
                 (2, "Do Yoga", "2021-05-06 13:25:09", 3, 1, 1, 1, "2021-05-09"),
                 (3, "Read a book", "2021-05-07 11:42:03", 2, 0, 0, 0, None),
